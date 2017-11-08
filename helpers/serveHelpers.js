@@ -2,10 +2,10 @@ const logger = require('winston');
 
 function createOpenGraphInfo ({ fileType, claimId, name, fileName, fileExt }) {
   return {
-    embedUrl     : `https://spee.ch/embed/${claimId}/${name}`,
-    showUrl      : `https://spee.ch/${claimId}/${name}`,
-    source       : `https://spee.ch/${claimId}/${name}.${fileExt}`,
-    directFileUrl: `https://spee.ch/${claimId}/${name}.${fileExt}`,
+    embedUrl     : `https://staging.spee.ch/embed/${claimId}/${name}`,
+    showUrl      : `https://staging.spee.ch/${claimId}/${name}`,
+    source       : `https://staging.spee.ch/${claimId}/${name}.${fileExt}`,
+    directFileUrl: `https://staging.spee.ch/${claimId}/${name}.${fileExt}`,
   };
 }
 

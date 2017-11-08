@@ -17,37 +17,37 @@ module.exports = {
         );
   },
   addOpenGraph (title, mimeType, showUrl, source, description, thumbnail) {
-    let basicTags = `<meta property="og:title" content="${title}"> 
-          <meta property="og:url" content="${showUrl}" > 
-          <meta property="og:site_name" content="Spee.ch" > 
-          <meta property="og:description" content="${description}">`;
+    let basicTags = `
+      <meta property="og:title" content="${title}"> 
+      <meta property="og:site_name" content="Spee.ch" > 
+      <meta property="og:description" content="${description}">`;
     if (mimeType === 'video/mp4') {
-      return new Handlebars.SafeString(
-                `${basicTags} <meta property="og:image" content="${thumbnail}" > 
-          <meta property="og:image:type" content="image/png" >
-          <meta property="og:image:width" content="600" >
-          <meta property="og:image:height" content="315" >
-          <meta property="og:type" content="video" > 
-          <meta property="og:video" content="${source}" > 
-          <meta property="og:video:secure_url" content="${source}" > 
-          <meta property="og:video:type" content="${mimeType}" >`
-            );
+      return new Handlebars.SafeString(`${basicTags}
+        <meta property="og:url" content="${showUrl}" > 
+        <meta property="og:image" content="${thumbnail}" > 
+        <meta property="og:image:type" content="image/png" >
+        <meta property="og:image:width" content="600" >
+        <meta property="og:image:height" content="315" >
+        <meta property="og:type" content="video" > 
+        <meta property="og:video" content="${source}" > 
+        <meta property="og:video:secure_url" content="${source}" > 
+        <meta property="og:video:type" content="${mimeType}" >`);
     } else if (mimeType === 'image/gif') {
-      return new Handlebars.SafeString(
-                `${basicTags} <meta property="og:image" content="${source}" > 
-          <meta property="og:image:type" content="${mimeType}" >
-          <meta property="og:image:width" content="600" >
-          <meta property="og:image:height" content="315" >
-          <meta property="og:type" content="video.other" >`
-            );
+      return new Handlebars.SafeString(`${basicTags} 
+        <meta property="og:url" content="${source}" > 
+        <meta property="og:image" content="${source}" > 
+        <meta property="og:image:type" content="${mimeType}" >
+        <meta property="og:image:width" content="600" >
+        <meta property="og:image:height" content="315" >
+        <meta property="og:type" content="video.other" >`);
     } else {
-      return new Handlebars.SafeString(
-                `${basicTags} <meta property="og:image" content="${source}" > 
-          <meta property="og:image:type" content="${mimeType}" >
-          <meta property="og:image:width" content="600" >
-          <meta property="og:image:height" content="315" >
-          <meta property="og:type" content="article" >`
-            );
+      return new Handlebars.SafeString(`${basicTags}
+        <meta property="og:url" content="${showUrl}" >  
+        <meta property="og:image" content="${source}" > 
+        <meta property="og:image:type" content="${mimeType}" >
+        <meta property="og:image:width" content="600" >
+        <meta property="og:image:height" content="315" >
+        <meta property="og:type" content="article" >`);
     }
   },
   addTwitterCard (mimeType, source, embedUrl, directFileUrl) {
